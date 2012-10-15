@@ -16,6 +16,8 @@ import org.apache.uima.resource.ResourceInitializationException;
 import org.apache.uima.resource.ResourceProcessException;
 import org.apache.uima.util.ProcessTrace;
 
+import type.geneName;
+
 public class GeneNERCasConsumer extends CasConsumer_ImplBase implements CasObjectProcessor {
   File outFile;
 
@@ -57,9 +59,9 @@ public class GeneNERCasConsumer extends CasConsumer_ImplBase implements CasObjec
     int start = 0;
     int end = 0;
     double confidence = 0;
-    FSIterator<Annotation> it = jcas.getAnnotationIndex(GeneName.type).iterator();
+    FSIterator<Annotation> it = jcas.getAnnotationIndex(geneName.type).iterator();
     while (it.hasNext()) {
-      GeneName gene = (GeneName) it.next();
+      geneName gene = (geneName) it.next();
 
       sentenceNumber = gene.getSentenceID();
       nounName = gene.getGeneText();
