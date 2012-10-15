@@ -18,7 +18,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="Lingpipe"/>
-	<classpathentry kind="src" path="banner"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
@@ -29,5 +28,11 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="banner/BANNER/libs/dragontool.jar"/>
+	<classpathentry kind="lib" path="banner/BANNER/libs/heptag.jar"/>
+	<classpathentry kind="lib" path="banner/BANNER/libs/junit-4.4.jar"/>
+	<classpathentry kind="lib" path="banner/BANNER/libs/mallet.jar"/>
+	<classpathentry kind="lib" path="banner/BANNER/libs/medpost.jar"/>
+	<classpathentry kind="lib" path="banner"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
