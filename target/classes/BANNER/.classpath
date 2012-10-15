@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry path="src" kind="src"/>
+	<classpathentry path="libs" kind="src"/>
+	<classpathentry path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre1.5.0_11" kind="con"/>
+	<classpathentry path="test" kind="src"/>
+	<classpathentry path="libs/dragontool.jar" kind="lib"/>
+	<classpathentry path="libs/heptag.jar" kind="lib"/>
+	<classpathentry sourcepath="C:/workspace_school/BANNER/libs/mallett_src.zip" path="libs/mallet.jar" kind="lib"/>
+	<classpathentry path="libs/medpost.jar" kind="lib"/>
+	<classpathentry path="libs/junit-4.4.jar" kind="lib"/>
+	<classpathentry path="bin" kind="output"/>
+</classpath>
