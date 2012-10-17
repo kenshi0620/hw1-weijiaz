@@ -13,7 +13,12 @@ import org.apache.uima.jcas.JCas;
 import org.apache.uima.resource.ResourceInitializationException;
 import org.apache.uima.util.Progress;
 
-
+/**
+ * @author zhangweijia
+ * 
+ * This class contain methods to collect sentences in given document
+ * each sentence becomes a CAS
+ */
 public class InputFIleCollectionReader extends CollectionReader_ImplBase {
   /**
    * Name of configuration parameter that must be set to the path of a directory containing input
@@ -49,12 +54,13 @@ public class InputFIleCollectionReader extends CollectionReader_ImplBase {
   public void getNext(CAS aCAS) throws IOException, CollectionException {
     // TODO Auto-generated method stub
     JCas jcas;
+    
     try {
       jcas = aCAS.getJCas();
     } catch (CASException e) {
       throw new CollectionException(e);
     }
-
+    
     // open input stream to file
     String sentence = mSentences.get(mCurrentIndex++);
     

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+  <primitive>true</primitive>
+  <annotatorImplementationName>GeneNER.GeneNameFilter</annotatorImplementationName>
+  <analysisEngineMetaData>
+    <name>bergmanDBChecker</name>
+    <description>check bergman DB to see if it is a gene name. 
+
+http://bergman.smith.man.ac.uk:8081</description>
+    <version>1.0</version>
+    <vendor/>
+    <configurationParameters/>
+    <configurationParameterSettings/>
+    <typeSystemDescription>
+      <imports>
+        <import location="Raw Sentence.xml"/>
+      </imports>
+    </typeSystemDescription>
+    <typePriorities/>
+    <fsIndexCollection/>
+    <capabilities>
+      <capability>
+        <inputs>
+          <type>GeneNER.GeneName</type>
+          <feature>GeneNER.GeneName:Confidence</feature>
+          <feature>GeneNER.GeneName:GeneText</feature>
+          <feature>GeneNER.GeneName:end</feature>
+          <feature>GeneNER.GeneName:begin</feature>
+        </inputs>
+        <outputs>
+          <feature>GeneNER.GeneName:Confidence</feature>
+          <feature>GeneNER.GeneName:GeneText</feature>
+          <feature>GeneNER.GeneName:end</feature>
+          <feature>GeneNER.GeneName:begin</feature>
+        </outputs>
+        <languagesSupported/>
+      </capability>
+    </capabilities>
+    <operationalProperties>
+      <modifiesCas>true</modifiesCas>
+      <multipleDeploymentAllowed>false</multipleDeploymentAllowed>
+      <outputsNewCASes>false</outputsNewCASes>
+    </operationalProperties>
+  </analysisEngineMetaData>
+  <resourceManagerConfiguration/>
+</analysisEngineDescription>

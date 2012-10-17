@@ -18,17 +18,23 @@ import org.apache.uima.util.ProcessTrace;
 
 import type.geneName;
 
-
+/**
+ * 
+ * @author zhangweijia
+ * 
+ * This class contain methods to output geneName
+ */
 public class GeneNERCasConsumer extends CasConsumer_ImplBase implements CasObjectProcessor {
   
   private static double UPPERBOUND = 0.6;
   
   File outFile;
   FileWriter fileWriter;
-
+  
   public GeneNERCasConsumer() {
   }
-
+  
+  
   public void initialize() throws ResourceInitializationException {
 
     // extract configuration parameter settings
@@ -55,8 +61,7 @@ public class GeneNERCasConsumer extends CasConsumer_ImplBase implements CasObjec
     } catch (CASException e) {
       throw new ResourceProcessException(e);
     }
-
-    String text = jcas.getDocumentText();
+    
     String sentenceNumber = null;
     String nounName = null;
     int start = 0;

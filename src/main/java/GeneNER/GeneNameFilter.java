@@ -15,14 +15,29 @@ import org.apache.uima.jcas.tcas.Annotation;
 
 import type.geneName;
 
+/**
+ * The GeneNameFilter class contain methods to update genes' confidence
+ * by checking bergmanlab database.
+ */
+
 public class GeneNameFilter extends JCasAnnotator_ImplBase{
 
   private double confidence = 0.0;
   private String GeneName = null;
+  
+  /** 
+   * Upper bound of genes' confidence. If lower, check the gene and update the confidence. 
+   */
   private static double UPPERBOUND = 0.6;
+  
+  /**
+   *  Lower bound of genes' confidence. If higher, check the gene and update the confidence. 
+   */
   private static double LOWWERBOUND = 0.3;
   
-  // Update GeneNames' confidence by query from bergmanlab database
+  /**
+   *  Update GeneNames' confidence by query from bergmanlab database
+   */
   public void process(JCas aJCas) {
     
     FSIterator<Annotation> iterator = aJCas.getAnnotationIndex(geneName.type).iterator();
@@ -35,7 +50,7 @@ public class GeneNameFilter extends JCasAnnotator_ImplBase{
       if (confidence <= UPPERBOUND && confidence >= LOWWERBOUND ) {
         // if found, reset confidence to 1, else to 0 
         try {
-          if (CheckfromDB(GeneName)) {
+          if (isGene(GeneName)) {
             gene.setConfidence(1);
           }else gene.setConfidence(0);
         } catch (IOException e) {
@@ -45,8 +60,12 @@ public class GeneNameFilter extends JCasAnnotator_ImplBase{
     }
   }
   
-  // return true if the string can be found in bergmanlab database
-  private boolean CheckfromDB ( String geneName ) throws IOException {
+  /**
+   * @param geneName
+   * @return return true if the string can be found in bergmanlab database
+   * @throws IOException
+   */
+  private boolean isGene ( String geneName ) throws IOException {
     
     String newGeneName = changeWhiteSpaceTo20percent(geneName);
     
@@ -65,7 +84,10 @@ public class GeneNameFilter extends JCasAnnotator_ImplBase{
     } else return false;
   }
   
-  // replace whitespaces in the string with '%20'
+  /**
+   * @param s
+   * @return replace whitespace in the string with '%20'
+   */
   private String changeWhiteSpaceTo20percent (String s) {
     String result = new String();
     String[] list = new String[20];
