@@ -18,9 +18,12 @@ import org.apache.uima.util.ProcessTrace;
 
 import type.geneName;
 
-public class GeneNERCasConsumer extends CasConsumer_ImplBase implements CasObjectProcessor {
-  File outFile;
 
+public class GeneNERCasConsumer extends CasConsumer_ImplBase implements CasObjectProcessor {
+  
+  private static double UPPERBOUND = 0.6;
+  
+  File outFile;
   FileWriter fileWriter;
 
   public GeneNERCasConsumer() {
@@ -68,13 +71,16 @@ public class GeneNERCasConsumer extends CasConsumer_ImplBase implements CasObjec
       start = gene.getBegin();
       end = gene.getEnd();
       confidence = gene.getConfidence();
-
-      try {
-        fileWriter.flush();
-        fileWriter.write(sentenceNumber + "|" + start + " " + end + "|" + nounName + "\n");
-      } catch (IOException e) {
-        e.printStackTrace();
+      
+      if (confidence >= UPPERBOUND) {
+        try {
+          fileWriter.flush();
+          fileWriter.write(sentenceNumber + "|" + start + " " + end + "|" + nounName + "\n");
+        } catch (IOException e) {
+          e.printStackTrace();
+        }        
       }
+
     }
   }
 
