@@ -129,7 +129,7 @@ public class GeneNERCasConsumer extends CasConsumer_ImplBase implements CasObjec
   public void destroy() {
     if (fileWriter != null) {
       try {
-        fileWriter.close();
+        fileWriter.close(); 
       } catch (IOException e) {
         // ignore IOException on destroy
       }
