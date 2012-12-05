@@ -31,7 +31,7 @@ public class GeneNameAnnotator extends JCasAnnotator_ImplBase {
    */
   public void process(JCas aJCas) {
     if (chunker == null) {
-      File modelFile = new File("/data/ne-en-bio-genetag.HmmChunker");
+      File modelFile = new File("data/ne-en-bio-genetag.HmmChunker");
       try {
         chunker = (ConfidenceChunker) AbstractExternalizable.readObject(modelFile);
       } catch (IOException e) {
